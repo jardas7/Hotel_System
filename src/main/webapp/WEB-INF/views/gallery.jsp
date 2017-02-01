@@ -8,9 +8,9 @@
     <meta name="author" content="Jaromír Hnik, Lenka Folprechtová">
     <link rel="icon" href="../../img/ico.png">
     <title>Hotelový systém</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="../../js/jquery-3.1.1.js"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/modern-business.css" rel="stylesheet">
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -34,36 +34,30 @@
 <jsp:include page="../../WEB-INF/structure/header.jsp"/>
 <div class="container">
     <div class="row">
-        <p id="img2" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im1.jpg" width="300"
+        <p id="img1" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im1.jpg" width="300"
                                                              height="200"/></p>
         <p id="img2" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im2.jpg" width="300"
                                                              height="200"/></p>
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im3.jpg" width="300"
+        <p id="img3" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im3.jpg" width="300"
                                                              height="200"/></p>
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im4.jpg" width="300"
-                                                             height="200"/></p>
-    </div>
-    <div class="row">
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im5.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im6.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im7.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im8.jpg" width="300"
+        <p id="img4" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im4.jpg" width="300"
                                                              height="200"/></p>
     </div>
     <div class="row">
-        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im9.jpg" width="300"
+        <p id="img5" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im5.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img6" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im6.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img7" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im7.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img8" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im8.jpg" width="300"
+                                                             height="200"/></p>
+    </div>
+    <div class="row">
+        <p id="img9" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im9.jpg" width="300"
                                                              height="200"/></p>
     </div>
 </div>
 </body>
 <jsp:include page="../../WEB-INF/structure/footer.jsp"/>
-<script src="../../js/jquery.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/clean-blog.min.js"></script>
-<script src="../../Scripts/bootstrap.min.js"></script>
-<script src="../../Scripts/jquery.validate.js"></script>
-<script src="../../Scripts/jquery.validate.unobtrusive.min.js"></script>
 </html>

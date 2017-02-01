@@ -1,8 +1,10 @@
 package com.DAO;
 
-import com.Entity.User;
+import com.Entity.UserEntity;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Jaromir Hnik, Lenka Folprechtova
@@ -10,13 +12,15 @@ import java.util.Collection;
  */
 
 public interface UserDao {
-    Collection<User> getAllUsers();
+    List<UserEntity> getAllUsers();
 
-    User getUserById(int id);
+    UserEntity getUserById(int id);
 
     void removeUserById(int id);
 
-    void updateUser(User user);
+    void updateUser(UserEntity user);
 
-    void insertUserToDB(User user);
+    void insertUserToDB(UserEntity user);
+
+    UserEntity getUserByUsername(String login);
 }

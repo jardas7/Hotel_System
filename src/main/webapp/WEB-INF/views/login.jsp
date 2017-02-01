@@ -1,13 +1,24 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
-<html lang="en">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="../../js/jquery-3.1.1.js"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
+
+    <script src="../../js/validator.js"></script>
+    <script src="../../js/validator.min.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/modern-business.css" rel="stylesheet">
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
+
+<c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+
 <style>
     body, html {
         height: 100%;
@@ -189,16 +200,7 @@
         } catch (e) {
             return false;
         }
-    }
 
-
-    function testLocalStorageData() {
-        if (!supportsHTML5Storage()) {
-            return false;
-        }
-        localStorage.setItem("PROFILE_IMG_SRC", "//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120");
-        localStorage.setItem("PROFILE_NAME", "César Izquierdo Tello");
-        localStorage.setItem("PROFILE_REAUTH_EMAIL", "oneaccount@gmail.com");
     }
 </script>
 
@@ -206,30 +208,46 @@
 <jsp:include page="../../WEB-INF/structure/header.jsp"/>
 <br/>
 <div>
-    <java:if test="">
-        <p style="text-align: center"><b> @TempData["error"] </b></p>
-    </java:if>
-    @using (Html.BeginForm("SignIn", "Login", FormMethod.Post, new {@class = "form-signin"}))
-    {
     <div class="container">
         <div class="card card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
             <img id="profile-img" class="profile-img-card"
                  src="http://media.cargocollective.com/1/0/16982/headerimg/Jxnblk-ShortHair-Circle.png"/>
             <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin">
-                <label for="inputEmail" class="sr-only">Uživatelské jméno</label>
-                <input type="text" id="inputEmail" class="form-control" placeholder="Uživatelské jméno" name="login"
-                       required=autofocus>
-                <label for="inputPassword" class="sr-only">Heslo</label>
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Heslo"
-                       required>
+            <c:if test="${param.error != null}">
+                <div class="alert alert-danger">
+                    <p>Nesprávné uživatelské údaje!</p>
+                </div>
+            </c:if>
+            <c:if test="${param.logout != null}">
+                <div class="alert alert-success">
+                    <p>Byli jste úspěšně odhlášeni.</p>
+                </div>
+            </c:if>
+            <c:if test="${param.denied != null}">
+            <div class="alert alert-warning">
+                <p>Nemáte dostatečná oprávnění k této operaci. Obraťte se na administrátora!</p>
+            </div>
+            </c:if>
+            <form action="${contextPath}/login" method="post" data-toggle="validator">
+                <label class="sr-only">Uživatelské jméno</label>
+                <div class="form-group has-feedback">
+                <input name="username" type="text" class="form-control" placeholder="Username"
+                autofocus="true" required>
+                </div>
+                <label class="sr-only">Heslo</label>
+                <div class="form-group has-feedback">
+                <input name="password" type="password" class="form-control" placeholder="Password" required/>
+                </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Přihlásit se</button>
+            </form>
+            <form action="${contextPath}/logout" method="post">
+                <input class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Odhlásit se"/>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>
         </div>
     </div>
-    }
     <jsp:include page="../../WEB-INF/structure/footer.jsp"/>
-</div>
 </body>
 </html>

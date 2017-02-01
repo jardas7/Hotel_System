@@ -1,14 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html lang="en">
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
-
+    <script src="../../js/jquery-3.1.1.js"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
-
     <link href="../../css/modern-business.css" rel="stylesheet">
-
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 </head>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -29,34 +27,31 @@
                     <a class="blog-nav-item active" href="/">Domů</a>
                 </li>
                 <li>
-                    <a class="blog-nav-item active" href="/galerie">Galerie</a>
+                    <a class="blog-nav-item active" href="/Galerie">Galerie</a>
                 </li>
                 <li>
-                    <a class="blog-nav-item" href="/kontakt">Kontakt</a>
+                    <a class="blog-nav-item" href="/Kontakt">Kontakt</a>
                 </li>
+                <sec:authorize access="hasAnyRole('ADMIN','USER')">
                 <li>
-                    <a class="blog-nav-item" href="/prihlaseni">Login</a>
+                    <a class="blog-nav-item" href="/Rezervace">Rezervace</a>
                 </li>
-                <!--
-               @if (@User.Identity.Name != string.Empty)
-               {
-               <li>
-                   <a class="blog-nav-item" href="@Url.Action("Index", "Books")">Výpis Rezervací</a>
-               </li>
-               }
-               @if (@User.IsInRole("administrator"))
-               {
-               <li>
-                   <a class="blog-nav-item" href="@Url.Action("Index", "Uzivatele")">Správa uživatelů</a>
-               </li>
-               }
-               @if (@User.Identity.Name == string.Empty)
-               {
-               <li>
-                   <a class="blog-nav-item" href="@Url.Action("Logout", "Login")">Přihlášení</a>
-               </li>
-               }
-                -->
+                </sec:authorize>
+                <sec:authorize access="hasAnyRole('ADMIN')">
+                <li>
+                    <a class="blog-nav-item" href="/Uzivatele">Uživatelé</a>
+                </li>
+                </sec:authorize>
+                <sec:authorize access="isAnonymous()">
+                    <li>
+                        <a class="blog-nav-item" href="/login">Přihlášení</a>
+                    </li>
+                </sec:authorize>
+                <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
+                    <li>
+                        <a class="blog-nav-item" href="/logout">Odhlásit se</a>
+                    </li>
+                </sec:authorize>
             </ul>
         </div>
     </div>

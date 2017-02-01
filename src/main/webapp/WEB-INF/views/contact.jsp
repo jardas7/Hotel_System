@@ -8,9 +8,9 @@
     <meta name="author" content="Jaromír Hnik, Lenka Folprechtová">
     <link rel="icon" href="../../img/ico.png">
     <title>Hotelový systém</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="../../Scripts/jquery-1.10.2.min.js"></script>
-    <script src="../../Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="../../js/jquery-3.1.1.js"></script>
+    <script src="../../js/jquery-3.1.1.min.js"></script>
+    <script src="../../js/bootstrap.js"></script>
     <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/modern-business.css" rel="stylesheet">
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -116,10 +116,4 @@
 </div>
 </body>
 <jsp:include page="../../WEB-INF/structure/footer.jsp"/>
-<script src="../../js/jquery.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/clean-blog.min.js"></script>
-<script src="../../Scripts/bootstrap.min.js"></script>
-<script src="../../Scripts/jquery.validate.js"></script>
-<script src="../../Scripts/jquery.validate.unobtrusive.min.js"></script>
 </html>

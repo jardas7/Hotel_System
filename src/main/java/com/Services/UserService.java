@@ -1,11 +1,12 @@
 package com.Services;
 
 import com.DAO.UserDao;
-import com.Entity.User;
+import com.Entity.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.Collection;
 
 /**
@@ -14,17 +15,22 @@ import java.util.Collection;
  */
 
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
     @Qualifier("mysql")
     private UserDao userDaoProvider;
 
-    public Collection<User> getAllUsers() {
+    public UserService(UserDao userDao){
+        this.userDaoProvider = userDao;
+    }
+
+    public Collection<UserEntity> getAllUsers() {
         return this.userDaoProvider.getAllUsers();
     }
 
-    public User getUserById(int id) {
+    public UserEntity getUserById(int id) {
         return this.userDaoProvider.getUserById(id);
     }
 
@@ -32,11 +38,15 @@ public class UserService {
         this.userDaoProvider.removeUserById(id);
     }
 
-    public void updateUser(User user) {
+    public UserEntity getUserByUsername(String login) {
+        return this.userDaoProvider.getUserByUsername(login);
+    }
+
+    public void updateUser(UserEntity user) {
         this.userDaoProvider.updateUser(user);
     }
 
-    public void insertUser(User user) {
+    public void insertUser(UserEntity user) {
         this.userDaoProvider.insertUserToDB(user);
     }
 }

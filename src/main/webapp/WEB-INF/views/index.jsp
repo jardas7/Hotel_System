@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -29,11 +30,14 @@
             <h2><b>O našem hotelu</b></h2>
             <p>Hotel Pardubice je situován v přímém centru Pardubic. Nabízíme kvalitní ubytování v Pardubicích s
                 nadstandardními službami. V hotelu je vybudováno celkem 13 pokojů, (jedno - dvoulůžkových, apartmán,
-                prezidentské apartmá) s venkovním posezením a možností grilování v letních měsících. Celková kapacita
+                prezidentské apartmá) s venkovním posezením a možností grilování v letních měsících. Celková
+                kapacita
                 hotelu Pardubic je 32lůžek. Všechny pokoje jsou vybaveny vlastním sociálním zařízením se sprchovým
-                koutem, mikrovlnou troubou, troubou, bezdrátovým internetem WI-FI, ledničkou, mrazákem a rychlovarnou
+                koutem, mikrovlnou troubou, troubou, bezdrátovým internetem WI-FI, ledničkou, mrazákem a
+                rychlovarnou
                 konvicí.</p>
-            <p>S cenou za ubytování od 250,- Kč/noc se řadíme mezi nejlevnější ubytování v Pardubicích. Nabízíme také
+            <p>S cenou za ubytování od 250,- Kč/noc se řadíme mezi nejlevnější ubytování v Pardubicích. Nabízíme
+                také
                 možnost dlouhodobého ubytování za výhodné ceny. Nabídka našeho ubytování je bezkonkurenční ve smyslu
                 kombinace kvality ubytování, lokality v Pardubicích a ceny. Dál už hledat nemusíte.</p>
         </div>
@@ -71,8 +75,8 @@
                             <li>Cena 250,- za noc</li>
                         </ul>
                         <p>Ideální pro samotáře na cestách.</p>
-                        </br>
 
+                        </br>
                     </div>
                     <div class="col-md-6">
                         <img class="img-responsive" src="../../img/11.JPG" width="480" height="480" alt="obrazek1">
@@ -91,6 +95,9 @@
                             <li>Cena 500,- za noc</li>
                         </ul>
                         <p>Ideální pro zamilovaný pár.</p>
+                        <c:if test="${mode == 'MODE_CATEGORY2'}">
+                            <h6>Dostupných pokojů: ${categories.capacity}</h6>
+                        </c:if>
                     </div>
                     <div class="col-md-6">
                         <img class="img-responsive" src="../../img/22.jpg" width="480" height="480" alt="obrazek2">
@@ -153,7 +160,8 @@
                     <p>Admin, může editovat, mazat, přidávat.</p>
                     <ul class="list-inline">
                         <li>
-                            <a href="https://www.facebook.com/jardas7"><i class="fa fa-2x fa-facebook-square"></i></a>
+                            <a href="https://www.facebook.com/jardas7"><i
+                                    class="fa fa-2x fa-facebook-square"></i></a>
                         </li>
                     </ul>
                 </div>

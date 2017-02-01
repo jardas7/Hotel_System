@@ -49,7 +49,7 @@
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
                     <li>
-                        <a class="blog-nav-item" href="/logout">Odhlásit se</a>
+                        <a class="blog-nav-item" href="/logout">Odhlásit se  (<sec:authentication property="principal.username"/>)</a>
                     </li>
                 </sec:authorize>
             </ul>

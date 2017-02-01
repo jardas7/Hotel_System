@@ -3,6 +3,7 @@ package com.Controllers;
 import com.Entity.Reservation;
 import com.Entity.UserEntity;
 import com.Services.ReservationsService;
+import com.Services.RoomCategoryService;
 import com.Services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -29,10 +30,13 @@ public class MainController extends WebMvcConfigurerAdapter {
     @Autowired
     private ReservationsService reservationsService;
 
+    @Autowired
+    public RoomCategoryService roomCategoryService;
+
     @RequestMapping(value = "/")
     public String home(){
-        return "index";
-    }
+            return "index";
+        }
 
     @RequestMapping(value = "/Galerie")
     public String gallery(){
@@ -50,7 +54,7 @@ public class MainController extends WebMvcConfigurerAdapter {
     }
 
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/Uzivatele")
     public String viewUsers(HttpServletRequest req){
         req.setAttribute("users", userService.getAllUsers());
@@ -58,7 +62,7 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "userPlace";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/delete-user")
     public String deleteUser(@RequestParam int id, HttpServletRequest req){
         userService.removeUserById(id);
@@ -67,7 +71,7 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "redirect:/Uzivatele";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/update-user")
     public String updateUser(@RequestParam int id, HttpServletRequest req){
         req.setAttribute("user", userService.getUserById(id));
@@ -75,14 +79,14 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "userPlace";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/add-user")
     public String addUser(@ModelAttribute UserEntity user, HttpServletRequest req){
         req.setAttribute("mode", "MODE_NEW");
         return "userPlace";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/save-user")
     public String saveUser(@ModelAttribute UserEntity user, HttpServletRequest req){
         userService.insertUser(user);
@@ -91,7 +95,7 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "redirect:/Uzivatele";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/saveUpdate-user")
     public String saveUpdateUser(@ModelAttribute UserEntity user, HttpServletRequest req){
         userService.updateUser(user);
@@ -108,7 +112,7 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "userPlace";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_ADMIN')")
+    @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(value = "/delete-reservation")
     public String deleteReservation(@RequestParam int id, HttpServletRequest req){
         reservationsService.removeReservationById(id);
@@ -140,7 +144,6 @@ public class MainController extends WebMvcConfigurerAdapter {
         req.setAttribute("mode", "MODE_RESERVATIONS");
         return "redirect:/Rezervace";
     }
-
 
 
     @RequestMapping(value = "/search-reservation")

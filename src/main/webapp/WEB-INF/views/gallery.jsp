@@ -34,27 +34,27 @@
 <jsp:include page="../../WEB-INF/structure/header.jsp"/>
 <div class="container">
     <div class="row">
-        <p id="img1" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im1.jpg" width="300"
+        <p id="img2" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im1.jpg" width="300"
                                                              height="200"/></p>
         <p id="img2" class="col-md-3 col-sm-3 col-xs-6"><img class="img-responsive" src="../../img/im2.jpg" width="300"
                                                              height="200"/></p>
-        <p id="img3" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im3.jpg" width="300"
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im3.jpg" width="300"
                                                              height="200"/></p>
-        <p id="img4" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im4.jpg" width="300"
-                                                             height="200"/></p>
-    </div>
-    <div class="row">
-        <p id="img5" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im5.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img6" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im6.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img7" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im7.jpg" width="300"
-                                                             height="200"/></p>
-        <p id="img8" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im8.jpg" width="300"
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im4.jpg" width="300"
                                                              height="200"/></p>
     </div>
     <div class="row">
-        <p id="img9" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im9.jpg" width="300"
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im5.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im6.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im7.jpg" width="300"
+                                                             height="200"/></p>
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im8.jpg" width="300"
+                                                             height="200"/></p>
+    </div>
+    <div class="row">
+        <p id="img2" class="col-md-3 col-sm-4 col-xs-6"><img class="img-responsive" src="../../img/im9.jpg" width="300"
                                                              height="200"/></p>
     </div>
 </div>

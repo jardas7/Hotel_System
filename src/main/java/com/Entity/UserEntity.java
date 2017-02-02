@@ -1,11 +1,5 @@
 package com.Entity;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import jdk.nashorn.internal.runtime.regexp.joni.exception.ErrorMessages;
-import org.springframework.beans.factory.annotation.Required;
-
-import javax.persistence.Entity;
-
 /**
  * Jaromir Hnik, Lenka Folprechtova
  * Hotel System, PPRO FIM UHK

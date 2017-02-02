@@ -22,7 +22,7 @@ public class UserService {
     @Qualifier("mysql")
     private UserDao userDaoProvider;
 
-    public UserService(UserDao userDao){
+    public UserService(UserDao userDao) {
         this.userDaoProvider = userDao;
     }
 

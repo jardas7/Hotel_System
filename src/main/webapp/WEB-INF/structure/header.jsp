@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <script src="../../js/jquery-3.1.1.js"></script>
     <script src="../../js/jquery-3.1.1.min.js"></script>
@@ -49,7 +49,7 @@
                 </sec:authorize>
                 <sec:authorize access="hasAnyRole('ADMIN', 'USER')">
                     <li>
-                        <a class="blog-nav-item" href="/logout">Odhlásit se  (<sec:authentication property="principal.username"/>)</a>
+                        <a class="blog-nav-item" href="/logout">Odhlásit se - (<sec:authentication property="principal.username"/>)</a>
                     </li>
                 </sec:authorize>
             </ul>

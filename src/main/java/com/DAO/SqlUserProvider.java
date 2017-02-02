@@ -23,11 +23,11 @@ public class SqlUserProvider implements UserDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void setDataSource(DataSource dataSource){
+    public void setDataSource(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    private static class UserRowMapper implements RowMapper<UserEntity>{
+    private static class UserRowMapper implements RowMapper<UserEntity> {
 
 
         @Override

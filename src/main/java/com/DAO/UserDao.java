@@ -1,9 +1,7 @@
 package com.DAO;
 
 import com.Entity.UserEntity;
-import org.springframework.data.repository.CrudRepository;
 
-import java.util.Collection;
 import java.util.List;
 
 /**

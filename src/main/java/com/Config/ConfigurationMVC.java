@@ -17,7 +17,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com")
-@Import({ SecurityConfig.class })
+@Import({SecurityConfig.class})
 public class ConfigurationMVC extends WebMvcConfigurerAdapter {
 
     @Override

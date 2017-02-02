@@ -40,9 +40,12 @@
                 také
                 možnost dlouhodobého ubytování za výhodné ceny. Nabídka našeho ubytování je bezkonkurenční ve smyslu
                 kombinace kvality ubytování, lokality v Pardubicích a ceny. Dál už hledat nemusíte.</p>
+
         </div>
     </div>
     <div class="row">
+        <c:if test="${mode == 'MODE_ROOMS'}">
+
         <div class="col-lg-12">
             <h2 class="page-header">Nabízené pokoje</h2>
         </div>
@@ -75,7 +78,18 @@
                             <li>Cena 250,- za noc</li>
                         </ul>
                         <p>Ideální pro samotáře na cestách.</p>
-
+                        <div class="media text-center" style="size: 20px">
+                            <div class="col-lg-pull-6">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-square fa-stack-2x text-primary"></i>
+                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Volných pokojů</h4>
+                                <p>Zbývá: <b style="color: #aa0000">${room1.capacity}</b></p>
+                            </div>
+                        </div>
                         </br>
                     </div>
                     <div class="col-md-6">
@@ -95,9 +109,19 @@
                             <li>Cena 500,- za noc</li>
                         </ul>
                         <p>Ideální pro zamilovaný pár.</p>
-                        <c:if test="${mode == 'MODE_CATEGORY2'}">
-                            <h6>Dostupných pokojů: ${categories.capacity}</h6>
-                        </c:if>
+                        <div class="media text-center" style="size: 20px">
+                            <div class="col-lg-pull-6">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-square fa-stack-2x text-primary"></i>
+                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Volných pokojů</h4>
+                                <p>Zbývá: <b style="color: #aa0000">${room2.capacity}</b></p>
+                            </div>
+                        </div>
+                        </br>
                     </div>
                     <div class="col-md-6">
                         <img class="img-responsive" src="../../img/22.jpg" width="480" height="480" alt="obrazek2">
@@ -117,6 +141,19 @@
                             <li>Cena 1000,- za noc</li>
                         </ul>
                         <p>Ideální podnikatele na cestách.</p>
+                        <div class="media text-center" style="size: 20px">
+                            <div class="col-lg-pull-6">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-square fa-stack-2x text-primary"></i>
+                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Volných pokojů</h4>
+                                <p>Zbývá: <b style="color: #aa0000">${room3.capacity}</b></p>
+                            </div>
+                        </div>
+                        </br>
                     </div>
                     <div class="col-md-6">
                         <img class="img-responsive" src="../../img/33.jpg" width="480" height="480" alt="obrazek3">
@@ -137,6 +174,18 @@
                             <li>Cena 3500,- za noc</li>
                         </ul>
                         <p>To nejlepší co máme.</p>
+                        <div class="media text-center" style="size: 20px">
+                            <div class="col-lg-pull-6">
+                            <span class="fa-stack fa-2x">
+                                <i class="fa fa-square fa-stack-2x text-primary"></i>
+                                <i class="fa fa-home fa-stack-1x fa-inverse"></i>
+                            </span>
+                            </div>
+                            <div class="media-body">
+                                <h4 class="media-heading">Volných pokojů</h4>
+                                <p>Zbývá: <b style="color: #aa0000">${room4.capacity}</b></p>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <img class="img-responsive" src="../../img/44.jpg" width="480" height="480" alt="obrazek4">
@@ -145,6 +194,7 @@
             </div>
         </div>
     </div>
+    </c:if>
     <div class="row">
         <div class="col-lg-12">
             <h2 class="page-header">Náš tým</h2>

@@ -5,6 +5,7 @@ package com.Entity;
  * Hotel System, PPRO FIM UHK
  */
 
+
 public class UserEntity {
 
     private int id;

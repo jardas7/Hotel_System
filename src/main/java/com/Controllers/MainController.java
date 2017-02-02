@@ -38,7 +38,12 @@ public class MainController extends WebMvcConfigurerAdapter {
     public RoomCategoryService roomCategoryService;
 
     @RequestMapping(value = "/")
-    public String home() {
+    public String home(HttpServletRequest req) {
+        req.setAttribute("room1", roomCategoryService.getRoomCategory(1));
+        req.setAttribute("room2", roomCategoryService.getRoomCategory(2));
+        req.setAttribute("room3", roomCategoryService.getRoomCategory(3));
+        req.setAttribute("room4", roomCategoryService.getRoomCategory(4));
+        req.setAttribute("mode", "MODE_ROOMS");
         return "index";
     }
 
@@ -119,7 +124,9 @@ public class MainController extends WebMvcConfigurerAdapter {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(value = "/delete-reservation")
     public String deleteReservation(@RequestParam int id, HttpServletRequest req) {
+        Reservation res = reservationsService.getReservationById(id);
         reservationsService.removeReservationById(id);
+        roomCategoryService.setCapacityDelete(roomCategoryService.getRoomCategory(res.getType()), res.getType());
         req.setAttribute("reservations", reservationsService.getAllReservations());
         req.setAttribute("mode", "MODE_RESERVATIONS");
         return "redirect:/Rezervace";
@@ -128,6 +135,8 @@ public class MainController extends WebMvcConfigurerAdapter {
     @PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_USER')")
     @RequestMapping(value = "/update-reservation")
     public String updateReservation(@RequestParam int id, HttpServletRequest req) {
+        Reservation res = reservationsService.getReservationById(id);
+        roomCategoryService.setCapacityDelete(roomCategoryService.getRoomCategory(res.getType()), res.getType());
         req.setAttribute("reservation", reservationsService.getReservationById(id));
         req.setAttribute("mode", "MODE_UPDATERESERVATION");
         return "userPlace";
@@ -144,16 +153,9 @@ public class MainController extends WebMvcConfigurerAdapter {
     @RequestMapping(value = "/save-reservation")
     public String saveReservation(@ModelAttribute Reservation reservation, HttpServletRequest req) {
         reservationsService.insertReservation(reservation);
+        roomCategoryService.setCapacityNew(roomCategoryService.getRoomCategory(reservation.getType()), reservation.getType());
         req.setAttribute("reservations", reservationsService.getAllReservations());
         req.setAttribute("mode", "MODE_RESERVATIONS");
-        return "redirect:/Rezervace";
-    }
-
-
-    @RequestMapping(value = "/search-reservation")
-    public String searchReservation(@ModelAttribute String name, HttpServletRequest req) {
-        req.setAttribute("reservations", reservationsService.getSearchedReservations(name));
-        req.setAttribute("mode", "MODE_RESERVATIONSSEARCH");
         return "redirect:/Rezervace";
     }
 
@@ -161,6 +163,7 @@ public class MainController extends WebMvcConfigurerAdapter {
     @RequestMapping(value = "/saveUpdate-reservation")
     public String saveUpdateReservation(@ModelAttribute Reservation reservation, HttpServletRequest req) {
         reservationsService.updateReservation(reservation);
+        roomCategoryService.setCapacityNew(roomCategoryService.getRoomCategory(reservation.getType()), reservation.getType());
         req.setAttribute("reservations", reservationsService.getAllReservations());
         req.setAttribute("mode", "MODE_RESERVATIONS");
         return "redirect:/Rezervace";

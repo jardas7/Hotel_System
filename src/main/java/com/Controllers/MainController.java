@@ -62,7 +62,6 @@ public class MainController extends WebMvcConfigurerAdapter {
         return "login";
     }
 
-
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping(value = "/Uzivatele")
     public String viewUsers(HttpServletRequest req) {

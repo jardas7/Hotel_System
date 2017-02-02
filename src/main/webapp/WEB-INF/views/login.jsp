@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
 >
@@ -242,10 +243,12 @@
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Přihlásit se</button>
             </form>
+<sec:authorize access="hasAnyRole('ADMIN', 'USER')">
             <form action="${contextPath}/logout" method="post">
                 <input class="btn btn-lg btn-primary btn-block btn-signin" type="submit" value="Odhlásit se"/>
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
             </form>
+</sec:authorize>
         </div>
     </div>
     <jsp:include page="../../WEB-INF/structure/footer.jsp"/>
